@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'AuthenticationHandler/AuthenticationClass.dart';
 class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
@@ -8,10 +8,6 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("Profile"),
-      ),
-    );
+    return AuthenticationClass();
   }
 }

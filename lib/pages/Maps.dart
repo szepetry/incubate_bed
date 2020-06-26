@@ -2,16 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'dart:async';
-import 'package:google_maps_webservice/directions.dart';
-import 'package:google_maps_webservice/distance.dart';
-import 'package:google_maps_webservice/geocoding.dart';
-import 'package:google_maps_webservice/geolocation.dart';
-import 'package:google_maps_webservice/places.dart';
-import 'package:google_maps_webservice/timezone.dart';
 import 'MapsMain/MainMapBody.dart';
 
-final places =
-    GoogleMapsPlaces(apiKey: "AIzaSyBR7oFZTwyjW9xipPg2EGaREJiJ_M89vQ4");
+// final places =
+//     GoogleMapsPlaces(apiKey: "AIzaSyBR7oFZTwyjW9xipPg2EGaREJiJ_M89vQ4");
 
 Completer<GoogleMapController> _controller = Completer();
 Position _currentPosition;
