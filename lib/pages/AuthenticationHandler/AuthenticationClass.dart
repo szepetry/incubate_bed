@@ -10,6 +10,7 @@ class AuthenticationClass extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Firebase login',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

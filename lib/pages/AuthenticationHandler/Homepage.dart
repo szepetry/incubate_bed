@@ -57,14 +57,6 @@ class _HomepageState extends State<Homepage> {
                   children: <Widget>[
                     Container(
                       padding: EdgeInsets.all(50.0),
-                      child: Image(
-                        image: AssetImage("assets/logo.png"),
-                        width: 100.0,
-                        height: 100.0,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(50.0),
                       child: Text(
                         "Hello, ${user.displayName}, you are logged in as ${user.email}",
                         style: TextStyle(fontSize: 20.0),
