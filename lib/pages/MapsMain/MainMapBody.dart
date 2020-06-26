@@ -114,7 +114,7 @@ class _MainMapBodyState extends State<MainMapBody> {
     var _lng = position.longitude;
 
     PlacesSearchResponse response = await places.searchByText(
-        "Hospitals",
+        "hospitals",
         location: Location(_lat, _lng),
         radius: 5000,
         opennow: true);
