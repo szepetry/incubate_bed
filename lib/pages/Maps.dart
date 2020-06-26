@@ -25,6 +25,7 @@ class _MapsState extends State<Maps> {
   void initState() {
     super.initState();
     _getLocation();
+    moveCamera(_currentPosition);
   }
 
   Future<void> _getLocation() async {
@@ -57,6 +58,7 @@ class _MapsState extends State<Maps> {
               child: RawMaterialButton(
                 onPressed: () {
                   _getLocation();
+                  moveCamera(_currentPosition);
                 },
                 child: Icon(
                   Icons.gps_fixed,
