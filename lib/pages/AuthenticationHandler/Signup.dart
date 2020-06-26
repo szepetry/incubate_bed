@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'RegistrationDetails.dart';
 
 class Signup extends StatefulWidget {
   @override
@@ -79,6 +80,8 @@ class _SignupState extends State<Signup> {
           UserUpdateInfo updateUser = UserUpdateInfo();
           updateUser.displayName = _name;
           user.user.updateProfile(updateUser);
+          UserData userData = UserData(_name, "0", []);
+          FirestoreService().updateNewUser(userData, user.user.uid);
         }
       } catch (e) {
         showError(e.message);
@@ -91,6 +94,7 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         child: Center(
           child: ListView(

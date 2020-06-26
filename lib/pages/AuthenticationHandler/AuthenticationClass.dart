@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Homepage.dart';
+import 'ProfilePage.dart';
 import 'Signin.dart';
 import 'Signup.dart';
 
@@ -14,7 +14,7 @@ class AuthenticationClass extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Homepage(),
+      home: ProfilePage(),
       routes: <String,WidgetBuilder>{
         "/Signin": (BuildContext context) => Signin(),
         "/Signup": (BuildContext context) => Signup(),
