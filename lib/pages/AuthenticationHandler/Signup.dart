@@ -10,7 +10,7 @@ class _SignupState extends State<Signup> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  String _name, _email, _password;
+  String _name, _email, _password, _pin;
 
   checkAuthentication() async {
     _auth.onAuthStateChanged.listen((user) {
@@ -66,9 +66,12 @@ class _SignupState extends State<Signup> {
   }
 
   signup() async {
+    
     if (_formKey.currentState.validate()) {
+      
       _formKey.currentState.save();
-
+      if(_pin=="28080808"){
+      // print("pin accepted");
       try {
         AuthResult user = await _auth.createUserWithEmailAndPassword(
             email: _email, password: _password);
@@ -80,7 +83,9 @@ class _SignupState extends State<Signup> {
       } catch (e) {
         showError(e.message);
       }
+      }
     }
+
   }
 
   @override
@@ -149,7 +154,7 @@ class _SignupState extends State<Signup> {
                         padding: EdgeInsets.only(top: 20.0),
                         child: TextFormField(
                           validator: (input) {
-                            if (input.length < 6)
+                            if (input.length <= 6)
                               return 'Password should be atleast 6 characters';
                           },
                           decoration: InputDecoration(
@@ -159,6 +164,25 @@ class _SignupState extends State<Signup> {
                           ),
                           onSaved: (input) {
                             _password = input;
+                          },
+                          obscureText: true,
+                        ),
+                      ),
+                      //pin
+                      Container(
+                        padding: EdgeInsets.only(top: 20.0),
+                        child: TextFormField(
+                          validator: (input) {
+                            if (input.length <= 6)
+                              return 'Pin should be atleast 4 characters';
+                          },
+                          decoration: InputDecoration(
+                            labelText: 'Pin',
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5.0)),
+                          ),
+                          onSaved: (input) {
+                            _pin = input;
                           },
                           obscureText: true,
                         ),
