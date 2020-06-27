@@ -11,7 +11,7 @@ Position _currentPosition;
 Set<Marker> createdMarkers;
 
 final places =
-    new GoogleMapsPlaces(apiKey: "AIzaSyCWjbyGKi7BoRJslCL03ppjWjTjd_uBhZ0");
+    new GoogleMapsPlaces(apiKey: "<APIKEY>");
 
 Future<void> moveCamera(Position pos) async {
   GoogleMapController mapController = await _controller.future;
