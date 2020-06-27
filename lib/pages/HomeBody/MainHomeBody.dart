@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_maps_webservice/places.dart';
 
 final places =
-    new GoogleMapsPlaces(apiKey: "AIzaSyCWjbyGKi7BoRJslCL03ppjWjTjd_uBhZ0");
+    new GoogleMapsPlaces(apiKey: "<APIKEY>");
 
 Position _currentPosition;
 
