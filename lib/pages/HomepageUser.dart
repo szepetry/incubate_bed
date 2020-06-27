@@ -10,7 +10,7 @@ class HomepageUser extends StatefulWidget {
 }
 
 class _HomepageUserState extends State<HomepageUser> {
-  int _currentIndex = 2;
+  int _currentIndex = 1;
 
   @override
   Widget build(BuildContext context) {
