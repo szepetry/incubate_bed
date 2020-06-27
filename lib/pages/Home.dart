@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'HomeBody/MainHomeBody.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text("Home"),
+        child: MainHomeBody(),
       ),
       
     );

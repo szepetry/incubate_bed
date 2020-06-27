@@ -39,7 +39,7 @@ class _EditScreenState extends State<EditScreen> {
         body: Padding(
           padding: EdgeInsets.only(top: 50, left: 10, right: 10, bottom: 10),
           child: Card(
-            color: Colors.blue[100],
+            color: Colors.grey[200],
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0),
             ),
@@ -156,8 +156,9 @@ class _EditScreenState extends State<EditScreen> {
                     height: 50,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30),
-                      child: FlatButton(
-                        color: Colors.white,
+                      child: RaisedButton(
+                        elevation: 4.0,
+                        color: Colors.grey[500],
                         child: Text(
                           "Save",
                           textScaleFactor: 1.5,

@@ -4,7 +4,6 @@ import 'package:geolocator/geolocator.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_maps_webservice/places.dart';
-import '../AuthenticationHandler/RegistrationDetails.dart';
 
 Completer<GoogleMapController> _controller = Completer();
 Marker marker;
@@ -45,15 +44,6 @@ class _MainMapBodyState extends State<MainMapBody> {
 
   List<Placemark> placemark;
 
-  // void createMarker(int markerID, double lat, double lng,String title, String snip ) {
-  //     createdMarkers.add(Marker(
-  //       markerId: MarkerId(markerID.toString()),
-  //       position: LatLng(lat, lng),
-  //       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-  //       infoWindow: InfoWindow(title: title, snippet: snip),
-  //     ));
-  // }
-
   void getAddress(String address, int j, String name) async {
     setState(() {
       _child = mapWidget();
@@ -63,7 +53,7 @@ class _MainMapBodyState extends State<MainMapBody> {
     print("Name " + placemark[0].locality);
 
     initMarker(placemark[0], j.toString(), name,
-        BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueAzure));
+        BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed));
 
     await Firestore.instance
         .collection('registeredHospitals')
@@ -90,7 +80,7 @@ class _MainMapBodyState extends State<MainMapBody> {
                   j.toString(),
                   name,
                   BitmapDescriptor.defaultMarkerWithHue(
-                      BitmapDescriptor.hueRed),
+                      BitmapDescriptor.hueYellow),
                   "Beds available: ${doc.documents[i].data['beds']} ;  Facilities: ${doc.documents[i].data['facilities'].toString()}");
             } else if (doc.documents[i].data['beds'] != '0') {
               initFireMarker(

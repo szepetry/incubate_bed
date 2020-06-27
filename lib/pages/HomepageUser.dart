@@ -10,7 +10,7 @@ class HomepageUser extends StatefulWidget {
 }
 
 class _HomepageUserState extends State<HomepageUser> {
-  int _currentIndex = 1;
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +19,7 @@ class _HomepageUserState extends State<HomepageUser> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
+        fixedColor: Colors.red,
         items: [
           bottomNavItem1,
           bottomNavItem2,

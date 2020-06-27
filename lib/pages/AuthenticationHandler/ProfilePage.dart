@@ -84,6 +84,7 @@ class _ProfilePageState extends State<ProfilePage> {
             navigateToEditScreen(firebaseUser.uid, bedCount, facalities);
         },
         child: Icon(Icons.edit),
+        backgroundColor: Colors.red,
       ),
       body: length == null
           ? Center(child: CircularProgressIndicator())
@@ -98,7 +99,6 @@ class _ProfilePageState extends State<ProfilePage> {
                             child: Align(
                               alignment: Alignment.topLeft,
                               child: Container(
-                                // color: Colors.blue,
                                 child: Text(
                                   "${user.displayName}",
                                   style: TextStyle(fontSize: 15.0),
@@ -111,7 +111,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             child: Align(
                               alignment: Alignment.topRight,
                               child: IconButton(
-                                color: Colors.blue,
+                                color: Colors.red,
                                 onPressed: signout,
                                 // padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
                                 icon: Icon(Icons.person),
@@ -122,7 +122,10 @@ class _ProfilePageState extends State<ProfilePage> {
                             padding: EdgeInsets.only(
                                 top: 80, left: 10, right: 10, bottom: 10),
                             child: Card(
-                              color: Colors.blue[100],
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              color: Colors.grey[200],
                               child: Center(
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -157,34 +160,38 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      child: SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.5,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.5,
-                                        child: ListView.separated(
-                                          itemBuilder: (context, index) {
-                                            if (facalities.length != 0)
-                                              return ListTile(
-                                                title: Center(
-                                                  child: Text(
-                                                      "${facalities[index].toString()}"),
+                                    facalities.length == null
+                                        ? Text("None")
+                                        : Container(
+                                            child: SizedBox(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.5,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.5,
+                                              child: ListView.separated(
+                                                itemBuilder: (context, index) {
+                                                  if (facalities.length != 0)
+                                                    return ListTile(
+                                                      title: Center(
+                                                        child: Text(
+                                                            "${facalities[index].toString()}"),
+                                                      ),
+                                                    );
+                                                  return Text("No facilities");
+                                                },
+                                                itemCount: facalities.length,
+                                                separatorBuilder:
+                                                    (context, index) => Divider(
+                                                  thickness: 4.0,
                                                 ),
-                                              );
-                                            return Text("No facilities");
-                                          },
-                                          itemCount: facalities.length,
-                                          separatorBuilder: (context, index) =>
-                                              Divider(
-                                            thickness: 4.0,
+                                                scrollDirection: Axis.vertical,
+                                              ),
+                                            ),
                                           ),
-                                          scrollDirection: Axis.vertical,
-                                        ),
-                                      ),
-                                    ),
                                   ],
                                 ),
                               ),

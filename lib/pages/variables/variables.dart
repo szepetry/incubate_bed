@@ -5,7 +5,7 @@ import '../Profile.dart';
 
 // class Variables {
   var bottomNavItem1 =
-      BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("Home"));
+      BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("Home"),);
 
   var bottomNavItem2 =
       BottomNavigationBarItem(icon: Icon(Icons.map), title: Text("Maps"));
