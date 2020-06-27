@@ -61,19 +61,7 @@ class _MainMapBodyState extends State<MainMapBody> {
         .then((doc) {
       if (doc.documents.isNotEmpty) {
         for (int i = 0; i < doc.documents.length; ++i) {
-          // String one = doc.documents[i].data['name'].toString();
-          // String two = name;
-          // debugPrint("${j}: ${one} = ${two}");
-
           if (doc.documents[i].data['name'].toString() == name) {
-            // debugPrint("Heloooooooooooo: ${doc.documents[i].data['name']}");
-            // initMarker(
-            //     placemark[0],
-            //     j.toString(),
-            //     name,
-            //     BitmapDescriptor.defaultMarkerWithHue(
-            //         BitmapDescriptor.hueAzure),
-            //     "Beds available: ${doc.documents[i].data['beds']} ;  Facilities: ${doc.documents[i].data['facilities'].toString()}");
             if (doc.documents[i].data['beds'] == '0') {
               initFireMarker(
                   placemark[0],
@@ -95,8 +83,6 @@ class _MainMapBodyState extends State<MainMapBody> {
         }
       }
     });
-
-    // createMarker(i, placemark[0].position.latitude, placemark[0].position.latitude, placemark[0].name, placemark[0].locality);
 
     setState(() {
       _child = mapWidget();
@@ -159,7 +145,6 @@ class _MainMapBodyState extends State<MainMapBody> {
           target: LatLng(position.latitude, position.longitude), zoom: 15.0),
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);
-        // mapController = controller;
       },
     );
   }

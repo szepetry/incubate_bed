@@ -106,7 +106,7 @@ class _SignupState extends State<Signup> {
                 padding: EdgeInsets.fromLTRB(10.0, 50.0, 10.0, 50.0),
                 child: Center(
                     child: Text(
-                  "Sign in",
+                  "Sign up",
                   style: TextStyle(fontSize: 60.0),
                 )),
               ),

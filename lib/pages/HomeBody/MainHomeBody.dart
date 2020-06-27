@@ -17,16 +17,9 @@ class MainHomeBody extends StatefulWidget {
 
 class _MainHomeBodyState extends State<MainHomeBody> {
   Position position;
-  Widget _child;
 
   Stream registeredHospitals =
       Firestore.instance.collection('registeredHospitals').snapshots();
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +46,7 @@ class _MainHomeBodyState extends State<MainHomeBody> {
               endIndent: 50,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.75,
+              height: MediaQuery.of(context).size.height * 0.75,
               // width: MediaQuery.of(context).size.width * 0.5,
               child: StreamBuilder(
                 stream: registeredHospitals,
@@ -65,32 +58,39 @@ class _MainHomeBodyState extends State<MainHomeBody> {
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: 
-                            snapshot.data.documents[index].data['beds'].toString() == "0"?
-                            Card(
-                            color: Colors.amber,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            child: ListTile(
-                              title: Text(
-                                  "${snapshot.data.documents[index].data['name'].toString()}",style: TextStyle(fontWeight: FontWeight.bold),),
-                              subtitle: Text("Beds available: ${snapshot.data.documents[index].data['beds'].toString()}\nFacilities: ${snapshot.data.documents[index].data['facilities'].toString()}"),
-                              
-                            ),
-                          ):
-                                                    Card(
-                            color: Colors.green,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            child: ListTile(
-                              title: Text(
-                                  "${snapshot.data.documents[index].data['name'].toString()}",style: TextStyle(fontWeight: FontWeight.bold),),
-                              subtitle: Text("Beds available: ${snapshot.data.documents[index].data['beds'].toString()}\nFacilities: ${snapshot.data.documents[index].data['facilities'].toString()}"),
-                              
-                            ),
-                          ),
+                          child: snapshot.data.documents[index].data['beds']
+                                      .toString() ==
+                                  "0"
+                              ? Card(
+                                  color: Colors.amber,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
+                                  child: ListTile(
+                                    title: Text(
+                                      "${snapshot.data.documents[index].data['name'].toString()}",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    subtitle: Text(
+                                        "Beds available: ${snapshot.data.documents[index].data['beds'].toString()}\nFacilities: ${snapshot.data.documents[index].data['facilities'].toString()}"),
+                                  ),
+                                )
+                              : Card(
+                                  color: Colors.green,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
+                                  child: ListTile(
+                                    title: Text(
+                                      "${snapshot.data.documents[index].data['name'].toString()}",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    subtitle: Text(
+                                        "Beds available: ${snapshot.data.documents[index].data['beds'].toString()}\nFacilities: ${snapshot.data.documents[index].data['facilities'].toString()}"),
+                                  ),
+                                ),
                           // Card(
                           //   color: Colors.white,
                           //   shape: RoundedRectangleBorder(
@@ -100,7 +100,7 @@ class _MainHomeBodyState extends State<MainHomeBody> {
                           //     title: Text(
                           //         "${snapshot.data.documents[index].data['name'].toString()}",style: TextStyle(fontWeight: FontWeight.bold),),
                           //     subtitle: Text("Beds available: ${snapshot.data.documents[index].data['beds'].toString()}\nFacilities: ${snapshot.data.documents[index].data['facilities'].toString()}"),
-                              
+
                           //   ),
                           // ),
                         );
