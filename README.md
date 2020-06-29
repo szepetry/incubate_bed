@@ -1,16 +1,9 @@
 # incubate_bed
 
-A new Flutter project.
+A project made for a hackathon called incubateIND.
 
-## Getting Started
+This project uses Google places API to get the location of nearby hospitals and displays the availability of beds and other facilities.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Uses:
+- Google Maps Flutter, along with its markers.
+- Google places API: Make sure you have a billing account associated to your Google cloud, if not it wouldn't work.
